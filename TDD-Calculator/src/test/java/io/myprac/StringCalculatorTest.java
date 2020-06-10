@@ -38,4 +38,10 @@ class StringCalculatorTest
 	{
 		assertEquals(1+2+3+4, cal.Add("1,2,3,4"), "When unknown amount of strings, should return their sum");
 	}
+	
+	@Test
+	void whenNewLineBetweenString()
+	{
+		assertEquals(6, cal.Add("1\n2,3"), "When new line between strings, should return their sum ");
+	}
 }
