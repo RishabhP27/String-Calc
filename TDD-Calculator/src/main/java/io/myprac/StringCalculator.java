@@ -27,7 +27,7 @@ public class StringCalculator
 		int i=0;
 		for(String str : num)
 		{
-			i=i + Integer.parseInt(str);
+			i += Integer.parseInt(str);
 		}
 		
 		return i;
