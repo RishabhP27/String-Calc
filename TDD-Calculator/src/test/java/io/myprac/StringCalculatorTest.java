@@ -26,4 +26,10 @@ class StringCalculatorTest
 	{
 		assertEquals(1, cal.Add("1"), "When single string, should return the same string");
 	}
+	
+	@Test
+	void whenTwoString()
+	{
+		assertEquals(1+2, cal.Add("1,2"), "When two strings, should return their sum");
+	}
 }
