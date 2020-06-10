@@ -56,4 +56,15 @@ class StringCalculatorTest
 	{
 		assertThrows(RuntimeException.class,() -> cal.Add("-3"));
 	}
+	
+	@Test
+	void whenMultipleNegetiveInString()
+	{
+		try {
+			fail("Exception");
+			assertThrows(RuntimeException.class,() -> cal.Add("-3,-1,-7"));
+		}
+		catch(RuntimeException e)
+		{}
+	}
 }
