@@ -32,4 +32,10 @@ class StringCalculatorTest
 	{
 		assertEquals(1+2, cal.Add("1,2"), "When two strings, should return their sum");
 	}
+	
+	@Test
+	void whenUnknownAmountString()
+	{
+		assertEquals(1+2+3+4, cal.Add("1,2,3,4"), "When unknown amount of strings, should return their sum");
+	}
 }
