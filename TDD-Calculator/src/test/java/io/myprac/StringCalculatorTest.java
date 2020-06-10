@@ -44,4 +44,11 @@ class StringCalculatorTest
 	{
 		assertEquals(6, cal.Add("1\n2,3"), "When new line between strings, should return their sum ");
 	}
+	
+	@Test
+	void whenDifferentDelimitersInString()
+	{
+		assertEquals(3, cal.Add("//;\n1;2"), "When new delimiter introduced, support the delimiter");
+	}
+	
 }
