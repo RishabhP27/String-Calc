@@ -29,7 +29,6 @@ public class StringCalculator
 		{
 			i += Integer.parseInt(str);
 		}
-		
 		return i;
 	}
 	
