@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class StringCalculatorTest  
+class StringCalculatorTest 
 {
 	StringCalculator cal;
 
@@ -16,7 +16,7 @@ class StringCalculatorTest
 	}
 	
 	@Test
-	void whenEmptyString() 
+	void whenEmptyString()
 	{
 		assertEquals(0, cal.Add(""), "When Empty should return zero");
 	}
@@ -51,9 +51,4 @@ class StringCalculatorTest
 		assertEquals(3, cal.Add("//;\n1;2"), "When new delimiter introduced, support the delimiter");
 	}
 	
-	@Test
-	void whenNegetiveInString()
-	{
-		assertThrows(Exception.class,() -> cal.Add("-3,-4,-1"));
-	}
 }
