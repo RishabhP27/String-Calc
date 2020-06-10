@@ -7,10 +7,7 @@ public class StringCalculator
 
 	public int Add(String numbers)
 	{
-		if(numbers.isEmpty())
-		{
-			return 0;
-		}
+	
 		delimiter = ",|\n";
 		if(numbers.startsWith("//"))
 		{
@@ -20,6 +17,10 @@ public class StringCalculator
 			
 			return StringCalculator.getSum(numbers);
 		}
+		else if(numbers.isEmpty())
+		{
+			return 0;
+		}
 		
 		else if(numbers.length()==1)
 		{
@@ -28,13 +29,16 @@ public class StringCalculator
 		
 		else
 		{
+			
 		 	return StringCalculator.getSum(numbers);
 		}
 
 	}
 	
-	static int getSum(String a)
+	static int getSum(String a) 
 	{
+		
+		
 		String[] num = a.split(delimiter);
 		int i=0;
 		for(String str : num)
