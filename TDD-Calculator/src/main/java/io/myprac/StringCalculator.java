@@ -16,10 +16,21 @@ public class StringCalculator
 		
 		else
 		{
-			String[] num = numbers.split(",");
-			return Integer.parseInt(num[0]) + Integer.parseInt(num[1]);
+		 	return StringCalculator.getSum(numbers);
 		}
 
+	}
+	
+	static int getSum(String a)
+	{
+		String[] num = a.split(",");
+		int i=0;
+		for(String str : num)
+		{
+			i=i + Integer.parseInt(str);
+		}
+		
+		return i;
 	}
 	
 }
