@@ -23,7 +23,7 @@ public class StringCalculator
 	
 	static int getSum(String a)
 	{
-		String[] num = a.split(",");
+		String[] num = a.split(",|\n");
 		int i=0;
 		for(String str : num)
 		{
