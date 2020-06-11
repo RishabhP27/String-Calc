@@ -36,14 +36,17 @@ public class StringCalculator
 	static int getSum(String a)
 	{
 		String[] num = a.split(delimiter);
+		String s = "";
 		for(String str : num)
 			{	
 				if(Integer.parseInt(str)<0)
 					{
-						throw new RuntimeException("negetives not allowed "+str);
+						s=s+str;
 					}
-			
 			}
+		if(!s.isEmpty())
+		{throw new RuntimeException("negetives not allowed "+s);}
+		
 		int i=0;
 		for(String str : num)
 		{
