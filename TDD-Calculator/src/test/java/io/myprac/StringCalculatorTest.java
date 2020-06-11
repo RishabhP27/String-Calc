@@ -64,4 +64,16 @@ class StringCalculatorTest
 		catch(RuntimeException ex)
 		{assertEquals("negetives not allowed -3", ex.getMessage());}
 	}
+	
+	@Test 
+	void whenMultipleNegetiveInString()
+	{
+		try 
+		{
+		cal.Add("-3,1,-2,-7");
+		fail("Exception");
+		}
+		catch(RuntimeException ex)
+		{assertEquals("negetives not allowed -3-2-7", ex.getMessage());}
+	}
 }

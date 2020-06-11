@@ -40,9 +40,9 @@ public class StringCalculator
 			{	
 				if(Integer.parseInt(str)<0)
 					{
-						throw new RuntimeException("negetives not allowed "+ str);
+						throw new RuntimeException("negetives not allowed "+str);
 					}
-				
+			
 			}
 		int i=0;
 		for(String str : num)
