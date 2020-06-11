@@ -89,10 +89,16 @@ class StringCalculatorTest
 		assertEquals(6,cal.Add("//[***]\n1***2***3"), "Delimiters can be of any length");
 	}
 	
+	@Test
+	void whenMultipleDelimiters()
+	{
+		assertEquals(6,cal.Add("//[*][%]\n1*2%3"), "Multiple delimiters can be supported");
+	}
+	
 	@AfterAll
 	static void numberOfTimesAddInvoked()
 	{
-		assertEquals(10,cal.getCalledCount(),"Return the number of times Add() invoked");
+		assertEquals(11,cal.getCalledCount(),"Return the number of times Add() invoked");
 		System.out.print("Add() method called "+cal.getCalledCount()+" times.");
 	}
 }
