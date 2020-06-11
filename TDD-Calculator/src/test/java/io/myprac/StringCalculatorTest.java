@@ -83,10 +83,16 @@ class StringCalculatorTest
 		assertEquals(2,cal.Add("2,1001"),"Numbers greater than 1000 should be ignored");
 	}
 	
+	@Test
+	void whenDelimiterOfAnyLength()
+	{
+		assertEquals(6,cal.Add("//[***]\\n1***2***3"), "Delimiters can be of any length");
+	}
+	
 	@AfterAll
 	static void numberOfTimesAddInvoked()
 	{
-		assertEquals(9,cal.getCalledCount(),"Return the number of times Add() invoked");
+		assertEquals(10,cal.getCalledCount(),"Return the number of times Add() invoked");
 		System.out.print("Add() method called "+cal.getCalledCount()+" times.");
 	}
 }
