@@ -52,6 +52,10 @@ public class StringCalculator
 		int i=0;
 		for(String str : num)
 		{
+			if(Integer.parseInt(str)>1000)
+			{
+				continue;
+			}
 			i += Integer.parseInt(str);
 		}
 		return i;
