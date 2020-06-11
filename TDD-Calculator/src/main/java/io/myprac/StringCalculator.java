@@ -2,7 +2,7 @@ package io.myprac;
 
 public class StringCalculator 
 {
-	
+
 	static String delimiter;
 
 	public int Add(String numbers)
@@ -53,6 +53,12 @@ public class StringCalculator
 			i += Integer.parseInt(str);
 		}
 		return i;
+	}
+	
+	public int getCalledCount()
+	{
+		
+		return 0;
 	}
 	
 }

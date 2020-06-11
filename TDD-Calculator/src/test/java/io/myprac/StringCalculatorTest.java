@@ -2,14 +2,14 @@ package io.myprac;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Rule;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
+
 
 class StringCalculatorTest 
 {
-	StringCalculator cal;
+	static StringCalculator cal;
 
 	@BeforeEach
 	void init()
@@ -75,5 +75,12 @@ class StringCalculatorTest
 		}
 		catch(RuntimeException ex)
 		{assertEquals("negetives not allowed -3-2-7", ex.getMessage());}
+	}
+	
+	@AfterAll
+	static void numberOfTimesAddInvoked()
+	{
+		assertEquals(8,cal.getCalledCount(),"Return the number of times Add() invoked");
+		System.out.print("Add() method called "+cal.getCalledCount()+" times.");
 	}
 }
