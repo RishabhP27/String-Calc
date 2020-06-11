@@ -2,8 +2,10 @@ package io.myprac;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Rule;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.ExpectedException;
 
 class StringCalculatorTest 
 {
@@ -51,9 +53,15 @@ class StringCalculatorTest
 		assertEquals(3, cal.Add("//;\n1;2"), "When new delimiter introduced, support the delimiter");
 	}
 	
-	@Test
+	@Test 
 	void whenNegetiveInString()
 	{
-		assertThrows(RuntimeException.class,() -> cal.Add("-3"));
+		try 
+		{
+		cal.Add("-3");
+		fail("Exception");
+		}
+		catch(RuntimeException ex)
+		{assertEquals("negetives not allowed -3", ex.getMessage());}
 	}
 }
