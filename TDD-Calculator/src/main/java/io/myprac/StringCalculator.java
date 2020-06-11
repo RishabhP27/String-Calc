@@ -1,5 +1,7 @@
 package io.myprac;
 
+import java.util.regex.Pattern;
+
 public class StringCalculator 
 {
 
@@ -18,6 +20,10 @@ public class StringCalculator
 		{
 			String[] str = numbers.split("\n", 2);
 			delimiter = str[0].substring(2);
+			if(delimiter.startsWith("["))
+			{
+				delimiter = Pattern.quote(delimiter.substring(1, delimiter.length()-1));
+			}
 			numbers = str[1];
 			
 			return StringCalculator.getSum(numbers);

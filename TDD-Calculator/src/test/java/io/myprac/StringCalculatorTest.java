@@ -86,7 +86,7 @@ class StringCalculatorTest
 	@Test
 	void whenDelimiterOfAnyLength()
 	{
-		assertEquals(6,cal.Add("//[***]\\n1***2***3"), "Delimiters can be of any length");
+		assertEquals(6,cal.Add("//[***]\n1***2***3"), "Delimiters can be of any length");
 	}
 	
 	@AfterAll
