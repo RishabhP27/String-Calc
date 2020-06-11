@@ -3,10 +3,12 @@ package io.myprac;
 public class StringCalculator 
 {
 
+	static int c;
 	static String delimiter;
 
 	public int Add(String numbers)
 	{
+		c++;
 		if(numbers.isEmpty())
 		{
 			return 0;
@@ -58,7 +60,7 @@ public class StringCalculator
 	public int getCalledCount()
 	{
 		
-		return 0;
+		return c;
 	}
 	
 }
