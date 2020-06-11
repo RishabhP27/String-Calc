@@ -77,10 +77,16 @@ class StringCalculatorTest
 		{assertEquals("negetives not allowed -3-2-7", ex.getMessage());}
 	}
 	
+	@Test
+	void whenNumberGreaterThan1000()
+	{
+		assertEquals(2,cal.Add("2,1001"),"Numbers greater than 1000 should be ignored");
+	}
+	
 	@AfterAll
 	static void numberOfTimesAddInvoked()
 	{
-		assertEquals(8,cal.getCalledCount(),"Return the number of times Add() invoked");
+		assertEquals(9,cal.getCalledCount(),"Return the number of times Add() invoked");
 		System.out.print("Add() method called "+cal.getCalledCount()+" times.");
 	}
 }
