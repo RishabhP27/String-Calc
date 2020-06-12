@@ -30,7 +30,7 @@ public class StringCalculator
 					{
 						String[] s = delimiter.split(("]\\["),2);
 						String a = s[0].substring(1);
-						String b = s[1].substring(0,1);
+						String b = s[1].substring(0,s[1].length()-1);
 						if(a.length()==b.length())
 							delimiter = "[\\"+a+"\\"+b+"]+";
 					}
