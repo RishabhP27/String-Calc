@@ -20,21 +20,7 @@ public class StringCalculator
 			String[] str = numbers.split("\n", 2);
 			delimiter = str[0].substring(2);
 			numbers = str[1];
-			if(delimiter.startsWith("["))
-				{
-					if(!delimiter.contains("]["))
-					{	
-						delimiter = Pattern.quote(delimiter.substring(1, delimiter.length()-1));
-					}
-					else
-					{
-						String[] s = delimiter.split(("]\\["),2);
-						String a = s[0].substring(1);
-						String b = s[1].substring(0,s[1].length()-1);
-						if(a.length()==b.length())
-							delimiter = "[\\"+a+"\\"+b+"]+";
-					}
-				}
+			getDelimiter();
 			
 			return StringCalculator.getSum(numbers,delimiter);
 		}
@@ -49,6 +35,24 @@ public class StringCalculator
 		 	return StringCalculator.getSum(numbers,delimiter);
 		}
 
+	}
+
+	private void getDelimiter() {
+		if(delimiter.startsWith("["))
+			{
+				if(!delimiter.contains("]["))
+				{	
+					delimiter = Pattern.quote(delimiter.substring(1, delimiter.length()-1));
+				}
+				else
+				{
+					String[] s = delimiter.split(("]\\["),2);
+					String a = s[0].substring(1);
+					String b = s[1].substring(0,s[1].length()-1);
+					if(a.length()==b.length())
+						delimiter = "[\\"+a+"\\"+b+"]+";
+				}
+			}
 	}
 	
 	static int getSum(String a,String del)
