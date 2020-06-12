@@ -4,7 +4,6 @@ import java.util.regex.Pattern;
 
 public class StringCalculator 
 {
-
 	static int c;
 	static String delimiter;
 
@@ -20,13 +19,23 @@ public class StringCalculator
 		{
 			String[] str = numbers.split("\n", 2);
 			delimiter = str[0].substring(2);
-			if(delimiter.startsWith("["))
-			{
-				delimiter = Pattern.quote(delimiter.substring(1, delimiter.length()-1));
-			}
 			numbers = str[1];
+			if(delimiter.startsWith("["))
+				{
+					if(!delimiter.contains("]["))
+					{	
+						delimiter = Pattern.quote(delimiter.substring(1, delimiter.length()-1));
+					}
+					else
+					{
+						String[] s = delimiter.split(("]\\["),2);
+						String a = s[0].substring(1);
+						String b = s[1].substring(0,1);
+						delimiter = "[\\"+a+"\\"+b+"]+";			
+					}
+				}
 			
-			return StringCalculator.getSum(numbers);
+			return StringCalculator.getSum(numbers,delimiter);
 		}
 		
 		else if(numbers.length()==1)
@@ -36,34 +45,32 @@ public class StringCalculator
 		
 		else
 		{
-		 	return StringCalculator.getSum(numbers);
+		 	return StringCalculator.getSum(numbers,delimiter);
 		}
 
 	}
 	
-	static int getSum(String a)
+	static int getSum(String a,String del)
 	{
-		String[] num = a.split(delimiter);
+		String[] num = a.split(del);
 		String s = "";
+		int i=0;
 		for(String str : num)
 			{	
 				if(Integer.parseInt(str)<0)
 					{
 						s=s+str;
 					}
+				if(Integer.parseInt(str)>1000)
+				{
+					continue;
+				}
+				i += Integer.parseInt(str);
 			}
+			
 		if(!s.isEmpty())
 		{throw new RuntimeException("negetives not allowed "+s);}
 		
-		int i=0;
-		for(String str : num)
-		{
-			if(Integer.parseInt(str)>1000)
-			{
-				continue;
-			}
-			i += Integer.parseInt(str);
-		}
 		return i;
 	}
 	
